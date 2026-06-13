@@ -39,10 +39,17 @@ tripbridge/
 
 ## External APIs
 
-### REST Countries v3 (restcountries.com)
-- Free, no API key required
-- Returns: name, flag, capital, region, languages, currencies, borders, population
-- Data is cached in localStorage for 6 hours
+### Country Data (data/countries.json — local dataset)
+- The REST Countries v3.1 API was **permanently deprecated** (it now
+  returns an error telling clients to migrate). Its replacement (v5)
+  requires a paid account and an API key sent as a Bearer token, which
+  isn't viable for a free client-side student project.
+- Instead, country data (name, flag emoji, capital, region, subregion,
+  area, languages, currencies, borders, top-level domains) ships as a
+  local JSON file (`data/countries.json`, ~100KB), sourced from the open
+  `mledoze/countries` dataset (same shape REST Countries used).
+- This is loaded once, cached in `localStorage`, and pre-cached by the
+  service worker — so country lookups work even fully offline.
 
 ### Amadeus Travel API (developers.amadeus.com)
 - Free sandbox tier — register at https://developers.amadeus.com

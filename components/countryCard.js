@@ -56,7 +56,7 @@ export async function renderCountry(container, params) {
             <span>${esc(country.region)} · ${esc(country.subregion || '')}</span>
           </div>
           <div class="profile-item">
-            <label>Population</label>
+            <label>Area</label>
             <span>${esc(pop)}</span>
           </div>
           <div class="profile-item">

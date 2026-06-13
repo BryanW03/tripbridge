@@ -21,6 +21,7 @@ const SHELL = [
   '/storage/favorites.js',
   '/utils/domHelpers.js',
   '/utils/animations.js',
+  '/data/countries.json',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap',
 ];
 
@@ -51,7 +52,6 @@ self.addEventListener('fetch', e => {
 
   // API calls: network-first, fall through on error
   if (
-    url.hostname.includes('restcountries.com') ||
     url.hostname.includes('amadeus.com') ||
     url.hostname.includes('er-api.com')
   ) {

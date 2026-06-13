@@ -1,7 +1,22 @@
-// api/countriesAPI.js – REST Countries v3 + cache
-const BASE = 'https://restcountries.com/v3.1';
+// api/countriesAPI.js – Local country dataset
+//
+// NOTE: The REST Countries v3.1 API was permanently deprecated (returns
+// {"success":false, "errors":[{"message":"This API version has been
+// deprecated..."}]}). Its replacement (v5) requires a paid account + API
+// key (Bearer token), which isn't viable for a free client-side student
+// project.
+//
+// Instead we ship a local dataset (data/countries.json, ~100KB) sourced
+// from the open "mledoze/countries" project (same shape as REST Countries
+// v3.1: name, cca3, flags.emoji, capital, region, subregion, languages,
+// currencies, borders, tlds, independent). This is loaded once, cached in
+// memory, and also gets cached by the service worker for offline use —
+// which actually matches the proposal's "country data cache" goal even
+// better than hitting a live API on every load.
+
+const DATA_URL = 'data/countries.json';
 const CACHE_KEY = 'tb_countries_cache';
-const CACHE_TTL = 1000 * 60 * 60 * 6; // 6 hours
+const CACHE_TTL = 1000 * 60 * 60 * 24; // 24 hours (local file rarely changes)
 
 let _allCountries = null;
 
@@ -29,7 +44,7 @@ export async function getAllCountries() {
   const cached = loadCache();
   if (cached) { _allCountries = cached; return cached; }
 
-  const res = await fetch(`${BASE}/all?fields=name,cca3,flags,capital,region,subregion,population,languages,currencies,borders,tlds,independent`);
+  const res = await fetch(DATA_URL);
   if (!res.ok) throw new Error('Failed to load country data.');
   const data = await res.json();
   _allCountries = data;
@@ -73,8 +88,11 @@ export function getLanguages(country) {
   return Object.values(country.languages).join(', ');
 }
 
+// The local dataset has "area" (km²) instead of "population".
+// We keep the function name for backward compatibility but display area.
 export function getPopulation(country) {
-  return country.population?.toLocaleString() || 'N/A';
+  if (!country.area) return 'N/A';
+  return `${country.area.toLocaleString()} km²`;
 }
 
 export function getCurrencyCodes(country) {

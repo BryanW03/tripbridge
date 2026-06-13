@@ -94,7 +94,7 @@ function countryCardHTML(c) {
       <div class="meta">
         <span>🏙 ${esc(capital)}</span>
         <span>🌍 ${esc(c.region)}</span>
-        <span>👥 ${pop}</span>
+        <span>📐 ${pop}</span>
         <span>🗣 ${esc(langs.split(',')[0])}</span>
         <span>💰 ${esc(curr.split(',')[0])}</span>
       </div>
