@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="TripBridge – Your all-in-one travel companion. Search countries, flights, currency, and plan your trip." />
+    <title>TripBridge – Travel Companion</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%231F5C8B'/><text y='.9em' font-size='70' x='13'>🌐</text></svg>" />
+
+    <!-- PWA manifest inline -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#1F5C8B" />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="navbar" id="navbar">
+      <a href="#/" class="nav-brand">
+        <span class="brand-icon">🌐</span>
+        <span class="brand-text">TripBridge</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#/" class="nav-link active" data-route="home">Home</a></li>
+        <li><a href="#/flights" class="nav-link" data-route="flights">Flights</a></li>
+        <li><a href="#/currency" class="nav-link" data-route="currency">Currency</a></li>
+        <li><a href="#/itinerary" class="nav-link" data-route="itinerary">My Trip</a></li>
+        <li><a href="#/favorites" class="nav-link" data-route="favorites">Saved</a></li>
+      </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main id="app" class="app-main">
+      <!-- Injected by router -->
+    </main>
+
+    <!-- TOAST NOTIFICATIONS -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- SERVICE WORKER REGISTRATION -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("sw.js").catch(() => {});
+        });
+      }
+    </script>
+
+    <!-- APP ENTRY -->
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

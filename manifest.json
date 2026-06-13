@@ -1,0 +1,18 @@
+{
+  "name": "TripBridge",
+  "short_name": "TripBridge",
+  "description": "Your all-in-one travel companion app",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F2F6FA",
+  "theme_color": "#1F5C8B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><circle cx='256' cy='256' r='256' fill='%231F5C8B'/><text y='.85em' font-size='380' x='65'>🌐</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
