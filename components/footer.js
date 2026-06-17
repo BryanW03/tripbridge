@@ -7,7 +7,7 @@
 // http:// or https://). Leave it as an empty string '' to hide
 // the button completely.
 // ─────────────────────────────────────────────────────────────
-const DEMO_VIDEO_URL = '';
+const DEMO_VIDEO_URL = 'https://www.loom.com/share/f76d96c6184e4fba90f5f650e65b7e15';
 
 const TRAVEL_TIPS = [
   'Pack a portable charger — airport outlets are always taken.',
