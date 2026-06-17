@@ -643,3 +643,142 @@ img { max-width: 100%; display: block; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* --- FOOTER ----------------------------------------------- */
+.site-footer {
+  margin-top: 3rem;
+  background: var(--brand);
+  color: rgba(255,255,255,.92);
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 1.5rem;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1.3fr;
+  gap: 2rem;
+}
+
+.footer-col h4 {
+  font-size: .82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--accent);
+  margin-bottom: .85rem;
+}
+
+/* Brand column */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: .4rem;
+}
+.footer-logo .brand-icon { font-size: 1.3rem; }
+.footer-tagline {
+  font-size: .88rem;
+  color: rgba(255,255,255,.7);
+  margin-bottom: .85rem;
+}
+.footer-clock {
+  font-family: var(--font-mono);
+  font-size: .82rem;
+  color: rgba(255,255,255,.65);
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+}
+.footer-video-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin-top: 1rem;
+  padding: .55rem 1.1rem;
+  border-radius: var(--radius-btn);
+  background: var(--accent);
+  color: #fff;
+  font-size: .85rem;
+  font-weight: 600;
+  transition: background var(--transition), transform var(--transition);
+}
+.footer-video-btn:hover {
+  background: var(--accent-dk);
+  transform: translateY(-1px);
+}
+.footer-tip-btn:focus-visible,
+.footer-video-btn:focus-visible,
+.footer-links a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Links column */
+.footer-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.footer-links a {
+  font-size: .9rem;
+  color: rgba(255,255,255,.78);
+  transition: color var(--transition);
+}
+.footer-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Travel tip column */
+.footer-tip p {
+  font-size: .9rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,.85);
+  min-height: 3.3em;
+  transition: opacity .15s ease;
+  margin-bottom: .75rem;
+}
+.footer-tip-btn {
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--accent);
+  padding: .4rem .85rem;
+  border: 1.5px solid var(--accent);
+  border-radius: 20px;
+  transition: all var(--transition);
+}
+.footer-tip-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Bottom bar */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.12);
+  padding: 1rem 1.25rem 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+  font-size: .8rem;
+  color: rgba(255,255,255,.6);
+}
+
+@media (max-width: 768px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    text-align: left;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+

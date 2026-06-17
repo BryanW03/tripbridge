@@ -18,6 +18,7 @@ const SHELL = [
   '/components/currencyConverter.js',
   '/components/itinerary.js',
   '/components/favoritesView.js',
+  '/components/footer.js',
   '/storage/favorites.js',
   '/utils/domHelpers.js',
   '/utils/animations.js',
